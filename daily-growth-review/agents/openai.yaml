@@ -1,0 +1,4 @@
+interface:
+  display_name: "每日成长复盘"
+  short_description: "Markdown daily reviews with mentor mirrors"
+  default_prompt: "Use $daily-growth-review to turn my rough day notes into a structured Markdown growth review."
