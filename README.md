@@ -2,11 +2,13 @@
 
 > 不是流水账，而是把一天变成可成长的档案。
 
-`daily-growth-review` 是一个面向 Codex 的个人复盘 Skill。它会把零散的时间轴、待办、日历片段、训练记录、聊天摘要或口述经历，整理成一份 Markdown 成长档案：重建一天的时间线，找出最有意义的“事件之心”，深挖开心、内耗、沮丧或低能量背后的机制，并用导师框架给出明日行动。
+`daily-growth-review` 是一个可在 **Codex / Claude Code / DeepSeek** 中使用的个人复盘能力包。它会把零散的时间轴、待办、日历片段、训练记录、聊天摘要或口述经历，整理成一份 Markdown 成长档案：重建一天的时间线，找出最有意义的“事件之心”，深挖开心、内耗、沮丧或低能量背后的机制，并用导师框架给出明日行动。
 
 ![每日成长复盘 Skill 示意图](assets/concept-flow.png)
 
 ![Codex Skill](https://img.shields.io/badge/Codex-Skill-111827)
+![Claude Skill](https://img.shields.io/badge/Claude-Code%20Skill-7c3aed)
+![DeepSeek Prompt](https://img.shields.io/badge/DeepSeek-Prompt%20Pack-0f766e)
 ![Markdown First](https://img.shields.io/badge/Output-Markdown-2563eb)
 ![Chinese Reflection](https://img.shields.io/badge/Language-%E4%B8%AD%E6%96%87-16a34a)
 ![License MIT](https://img.shields.io/badge/License-MIT-f59e0b)
@@ -16,6 +18,7 @@
 - [它解决什么问题](#它解决什么问题)
 - [核心能力](#核心能力)
 - [效果预览](#效果预览)
+- [版本选择](#版本选择)
 - [安装](#安装)
 - [使用方式](#使用方式)
 - [输出结构](#输出结构)
@@ -71,7 +74,18 @@ Skill 会把“说不清的内耗”转成可面对、可命名、可行动的�
 
 ![把内耗具象化](assets/emotion-naming.png)
 
+## 版本选择
+
+| 平台 | 使用目录 | 适合场景 |
+|---|---|---|
+| Codex | `daily-growth-review/` | 已安装 Codex，想通过 `$daily-growth-review` 调用 |
+| Claude Code | `claude/daily-growth-review/` | 使用 Claude Code，想通过 `/daily-growth-review` 调用 |
+| DeepSeek | `deepseek/` | 使用 DeepSeek 网页、API 或智能体平台，需要复制系统提示词 |
+| 通用核心 | `shared/` | 想理解跨平台复盘方法，或手动移植到其他 AI 工具 |
+
 ## 安装
+
+### Codex
 
 把 `daily-growth-review` 文件夹复制到你的 Codex skills 目录。
 
@@ -90,16 +104,63 @@ cp -R ./daily-growth-review ~/.codex/skills/daily-growth-review
 
 安装后，在新对话或重新加载技能后即可使用。
 
+### Claude Code
+
+把 `claude/daily-growth-review` 文件夹复制到 Claude Code skills 目录。
+
+macOS / Linux:
+
+```bash
+mkdir -p ~/.claude/skills
+cp -R ./claude/daily-growth-review ~/.claude/skills/daily-growth-review
+```
+
+Windows PowerShell:
+
+```powershell
+Copy-Item -Recurse -Force .\claude\daily-growth-review "$env:USERPROFILE\.claude\skills\daily-growth-review"
+```
+
+Claude Code 中可以直接输入：
+
+```text
+/daily-growth-review 帮我做今天的复盘。
+```
+
+### DeepSeek
+
+DeepSeek 没有统一的本地 Skill 目录标准，所以这里提供 Prompt Pack：
+
+- `deepseek/system-prompt.md`：复制到 DeepSeek 的系统提示词、智能体指令或 API `system` message。
+- `deepseek/system-prompt.txt`：给 API 代码读取的纯文本系统提示词。
+- `deepseek/user-prompts.md`：常用用户提示词模板。
+- `deepseek/api-example.md`：OpenAI-compatible API 调用示例。
+
 ## 使用方式
 
-每日复盘：
+Codex 每日复盘：
 
 ```text
 $daily-growth-review 帮我做今天的复盘。
 上午写论文但效率一般，下午刷手机有点内耗，晚上练背，状态回升了一点。
 ```
 
-深挖模式：
+Claude Code 每日复盘：
+
+```text
+/daily-growth-review 帮我做今天的复盘。
+上午写论文但效率一般，下午刷手机有点内耗，晚上练背，状态回升了一点。
+```
+
+DeepSeek 每日复盘：
+
+```text
+帮我做今天的每日成长复盘。
+上午写论文但效率一般，下午刷手机有点内耗，晚上练背，状态回升了一点。
+语气用深挖模式。
+```
+
+Codex 深挖模式：
 
 ```text
 $daily-growth-review 用深挖模式复盘今天，重点分析我为什么拖延科研。
@@ -161,6 +222,41 @@ $daily-growth-review 这里是我 7 天的每日复盘，请帮我做周复盘�
 - 查理·芒格：反向思考，避免愚蠢。
 
 ## 项目结构
+
+```text
+assets/
+  concept-flow.png
+  review-dashboard.png
+  emotion-naming.png
+daily-growth-review/
+  SKILL.md                  # Codex 版
+  agents/
+    openai.yaml
+  references/
+    daily-template.md
+    weekly-template.md
+    yearly-template.md
+    mentor-frameworks.md
+    interview-prompts.md
+claude/
+  daily-growth-review/
+    SKILL.md                # Claude Code 版
+    references/
+      daily-template.md
+      weekly-template.md
+      yearly-template.md
+      mentor-frameworks.md
+      interview-prompts.md
+deepseek/
+  system-prompt.md          # DeepSeek 系统提示词
+  system-prompt.txt         # DeepSeek API 纯文本系统提示词
+  user-prompts.md           # DeepSeek 用户提示词示例
+  api-example.md            # DeepSeek API 示例
+shared/
+  core-method.md            # 跨平台核心方法
+```
+
+Codex skill 内部结构：
 
 ```text
 daily-growth-review/
