@@ -34,4 +34,4 @@ Date: 2026-08-15
 - [x] Legacy personalized images were removed from the v2 branch and remain recoverable from Git history.
 - [x] Installed Skill is synchronized and recursive hashes match the verified source (13 files, SHA-256 compared).
 - [x] Final staged/commit diff is scanned for private markers and unrelated files.
-- [ ] Remote branch is pushed without force and read back after publication.
+- [x] Remote branch was fast-forward pushed without force and read back through the GitHub app.
