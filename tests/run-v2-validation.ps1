@@ -53,6 +53,59 @@ function Require-EvenFences([string]$RelativePath) {
     }
 }
 
+function Validate-SkillFrontmatter([string]$RelativePath) {
+    $path = Resolve-RepoPath $RelativePath
+    if (-not (Test-Path -LiteralPath $path -PathType Leaf)) {
+        $failures.Add("missing-file:$RelativePath")
+        return
+    }
+
+    $content = Get-Content -Raw -Encoding UTF8 $path
+    $frontmatterMatch = [regex]::Match($content, '\A---\r?\n(?<body>.*?)\r?\n---(?:\r?\n|\z)', [System.Text.RegularExpressions.RegexOptions]::Singleline)
+    if (-not $frontmatterMatch.Success) {
+        $failures.Add("invalid-frontmatter:$RelativePath:missing-delimiters")
+        return
+    }
+
+    $fields = @{}
+    foreach ($line in ($frontmatterMatch.Groups['body'].Value -split '\r?\n')) {
+        if ([string]::IsNullOrWhiteSpace($line) -or $line.TrimStart().StartsWith('#')) { continue }
+        $fieldMatch = [regex]::Match($line, '^(?<key>[A-Za-z0-9_-]+):\s*(?<value>.*)$')
+        if (-not $fieldMatch.Success) {
+            $failures.Add("invalid-frontmatter:$RelativePath:unparseable-line")
+            continue
+        }
+        $fields[$fieldMatch.Groups['key'].Value] = $fieldMatch.Groups['value'].Value.Trim()
+    }
+
+    $allowedFields = @('name', 'description', 'license', 'allowed-tools', 'metadata', 'compatibility')
+    foreach ($key in $fields.Keys) {
+        if ($allowedFields -notcontains $key) {
+            $failures.Add("invalid-frontmatter:$RelativePath:unexpected-field-$key")
+        }
+    }
+
+    if (-not $fields.ContainsKey('name')) {
+        $failures.Add("invalid-frontmatter:$RelativePath:missing-name")
+    }
+    else {
+        $name = $fields['name']
+        if ($name.Length -gt 64 -or $name -notmatch '^[a-z0-9-]+$' -or $name.StartsWith('-') -or $name.EndsWith('-') -or $name.Contains('--')) {
+            $failures.Add("invalid-frontmatter:$RelativePath:bad-name")
+        }
+    }
+
+    if (-not $fields.ContainsKey('description')) {
+        $failures.Add("invalid-frontmatter:$RelativePath:missing-description")
+    }
+    else {
+        $description = $fields['description']
+        if ($description.Length -gt 1024 -or $description -match '[<>]') {
+            $failures.Add("invalid-frontmatter:$RelativePath:bad-description")
+        }
+    }
+}
+
 $requiredReferences = @(
     'user-profile.md',
     'next-action-board.md',
@@ -71,6 +124,9 @@ foreach ($name in $requiredReferences) {
     Require-File "daily-growth-review/references/$name"
     Require-File "claude/daily-growth-review/references/$name"
 }
+
+Validate-SkillFrontmatter 'daily-growth-review/SKILL.md'
+Validate-SkillFrontmatter 'claude/daily-growth-review/SKILL.md'
 
 Require-Text 'daily-growth-review/SKILL.md' @(
     '^---',
