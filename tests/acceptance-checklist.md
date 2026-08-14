@@ -33,5 +33,5 @@ Date: 2026-08-15
 - [x] Distributable files are scanned for real Notion collection IDs, WeCom webhook keys, and credential-like values.
 - [x] Legacy personalized images were removed from the v2 branch and remain recoverable from Git history.
 - [x] Installed Skill is synchronized and recursive hashes match the verified source (13 files, SHA-256 compared).
-- [ ] Final staged/commit diff is scanned for private markers and unrelated files.
+- [x] Final staged/commit diff is scanned for private markers and unrelated files.
 - [ ] Remote branch is pushed without force and read back after publication.

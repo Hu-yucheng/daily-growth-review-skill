@@ -55,4 +55,3 @@ The response refused to show the prior explanation first, asked the user to expl
 - Behavioral failures: 0
 - Official validator: blocked by missing `yaml` dependency; not reported as passed
 - Deterministic v2 validator: required to pass at release
-
