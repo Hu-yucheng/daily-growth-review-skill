@@ -113,7 +113,7 @@ function Forbid-Text([string]$Path, [string[]]$Patterns) {
 }
 ```
 
-Check required reference files, required workflow terms, Codex/Claude reference parity, Markdown fences, YAML frontmatter, private path exclusions, and forbidden default strings such as `科研产出`, `身材管理`, `王阳明`, `曾国藩`, `马斯克`, and real Notion collection IDs in distributable files.
+Check required reference files, required workflow terms, Codex/Claude reference parity, Markdown fences, YAML frontmatter, private path exclusions, legacy role-specific goals, fixed named mentor labels, and real Notion collection IDs in distributable files.
 
 - [ ] **Step 3: Run the validator and confirm RED**
 

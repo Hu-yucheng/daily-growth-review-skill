@@ -1,42 +1,42 @@
-# DeepSeek User Prompt Examples
+# DeepSeek v2 User Prompt Examples
 
-Use these after pasting `system-prompt.md` as the system prompt.
+Use these after loading `system-prompt.md` or `system-prompt.txt`.
 
-## Daily Review
+## First use
 
 ```text
-帮我做今天的每日成长复盘。
-上午写论文但效率一般，下午刷手机有点内耗，晚上练背，状态回升了一点。
-语气用深挖模式。
+这是我第一次使用。请先利用我已经说过的信息，只问一个最重要的背景问题，然后给我一版可用的复盘。
+今天上午上课，下午准备考试，晚上还要照顾家人。我最困扰的是计划总被打断。
 ```
 
-## No Notes
+## Daily review
 
 ```text
-我今天没有记录，但想复盘。请用访谈方式问我，最多问 5 个问题，然后生成第一版 Markdown 复盘。
+帮我复盘今天。请先验收昨天的承诺，再区分事实与解释；如果没有可比较的同类事件，就建立基线，不要硬说我进步了。
 ```
 
-## Harsh But Safe
+## Tomorrow board
 
 ```text
-用严厉拷问模式复盘今天，重点分析我为什么逃避科研。
-要求直接，但不要羞辱我。最后给我明天必须执行的一条铁律。
+明天我想把申请准备全部完成。请选一个主目标，拆成 3-5 个权重合计 100 的子任务，每项写明完成证据，并给出最低版本、时间块和 if-then plan。
 ```
 
-## Weekly Review
+## Delayed recall
 
 ```text
-下面是我 7 天的每日复盘，请做周复盘。
-重点找出重复阻碍、情绪命名词典、三导师趋势、下周主战役。
-
-[粘贴 7 天复盘]
+检查我昨天学到的内容。先让我回忆，不要先展示昨天的答案；回答后再指出缺口，并生成 upgrade card。
 ```
 
-## Annual Skeleton
+## Captured link
 
 ```text
-请根据我这一年的周复盘材料，先生成年度成长复盘骨架。
-如果材料不足，请标记不确定之处，不要编造。
+把这个链接放进 Inbox。只有真正读到内容后才能生成知识卡；如果打不开，请保留来源并告诉我需要补充字幕、截图还是要点。
+```
 
-[粘贴周复盘或月度材料]
+## Weekly review
+
+```text
+下面是我七天的复盘。请总结承诺闭环、主目标进度、重复问题、同类情境变化、七日趋势和 recall 证据，不要重写七篇日记。
+
+[粘贴复盘]
 ```

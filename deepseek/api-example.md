@@ -23,7 +23,7 @@ response = client.chat.completions.create(
         {"role": "system", "content": SYSTEM_PROMPT},
         {
             "role": "user",
-            "content": "帮我做今天的复盘：上午写论文，下午刷手机内耗，晚上练背。语气用深挖模式。",
+            "content": "Help me review today without assuming my background. Audit prior evidence, then build one weighted primary outcome for tomorrow.",
         },
     ],
     stream=False,
