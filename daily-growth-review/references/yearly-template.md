@@ -1,57 +1,46 @@
-# Yearly Review Skeleton
+# Adaptive Annual and Stage Review Template
 
-Use this as a first-release annual review structure. It is a skeleton, not a full automatic yearly analytics system.
-
-## Required Output
+Use this for an annual review or a multi-month stage review. Derive life domains from the user's profile and actual records; do not impose fixed domains.
 
 ```markdown
-# 年度成长复盘 - YYYY
+# Growth Review — YYYY or Stage Name
 
-## 1. 这一年的主线
+## 1. Context and Role Changes
 
-这一年真正反复出现、反复推动你的主题是什么？
+## 2. Goals Chosen, Changed, or Released
 
-## 2. 反复出现的敌人
+## 3. Verified Outcomes
 
-| 敌人 | 典型场景 | 机制 | 今年如何影响你 |
-|---|---|---|---|
+| Profile-derived domain | Outcome | Evidence | Independence or transfer | Sustainability |
+|---|---|---|---|---|
 
-## 3. 反复出现的力量
+## 4. Repeated Patterns and Structural Changes
 
-| 力量 | 典型场景 | 今年如何帮助你 | 明年如何复用 |
-|---|---|---|---|
+## 5. Fair Growth Comparisons
 
-## 4. 导师框架下的年度评分
+| Situation type | Earlier baseline | Later evidence | What changed | Confidence |
+|---|---|---|---|---|
 
-| 导师 | 年度评分 | 证据 | 明年修炼方向 |
-|---|---:|---|---|
-| 王阳明 | /10 |  |  |
-| 曾国藩 | /10 |  |  |
-| 马斯克 | /10 |  |  |
+## 6. Energy, Emotion, and Relationships
 
-## 5. 最重要的 10 个事件之心
+## 7. Learning That Survived Delayed Recall
 
-| 排名 | 事件 | 为什么重要 | 改变了什么 |
-|---:|---|---|---|
+## 8. Practices to Keep, Stop, and Redesign
 
-## 6. 我的情绪命名词典
+## 9. Next Cycle Profile
 
-| 命名 | 机制 | 年度变化 | 明年处理方式 |
-|---|---|---|---|
+- roles:
+- one to three goals:
+- constraints:
+- resources and support:
+- feedback style and boundaries:
+- active score dimensions:
 
-## 7. 下一年的主战役
+## 10. First Primary Outcome
 
-**主战役**：
-
-**必须放弃的消耗**：
-
-**最小行动系统**：
-
-**年度提醒**：
+- definition_of_done:
+- minimum_version:
+- first checkpoint:
 ```
 
-## Rules
-
-- Ask for monthly or weekly review material before attempting a full annual review.
-- If only partial material exists, mark the review as `年度骨架草案`.
-- Preserve the user's own emotional names when possible; do not rename everything.
+When evidence is sparse, label the document a draft and separate remembered narrative from verified records.

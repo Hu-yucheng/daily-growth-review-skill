@@ -1,123 +1,133 @@
-# Daily Review Template
+# Adaptive Daily Review Template
 
-Use this template for a single-day review. Keep the final output in Markdown.
-
-## Required Output
+Use this template for a full daily review. Omit empty optional commentary, but keep the machine-readable fields stable.
 
 ````markdown
-# 每日成长复盘 - YYYY-MM-DD
+# Daily Growth Review — YYYY-MM-DD
 
-## 0. 今日一句话
+## 0. Context Check
 
-用一句话概括今天的主线。避免鸡血口号，写出真实张力。
+- Roles or life stage used:
+- Current-cycle goals used:
+- Constraints and resources used:
+- Feedback style and boundaries:
+- Missing context that could change the review:
 
-## 1. 时间轴图
+## 1. Previous Commitment Audit
 
-| 时间 | 事件 | 类型 | 能量 | 备注 |
-|---|---|---|---|---|
-| 08:00-09:00 |  |  |  |  |
-
-类型可选：深度工作 / 核心产出 / 恢复 / 消耗 / 内耗 / 生活维护 / 身体管理 / 社交 / 无意识漂移。
-能量可用：高 / 中 / 低 / 坍塌 / 回升。
-
-## 2. 今日事件之心
-
-**事件**：
-
-**为什么它重要**：
-
-**它暴露的模式**：
-
-**它可能带来的进步入口**：
-
-## 3. 情绪显影与命名
-
-| 情绪 | 触发事件 | 诗性命名 | 机制命名 | 追问后的发现 |
+| Prior outcome | Status | Required evidence | Evidence found | Main cause |
 |---|---|---|---|---|
 
-命名格式：`诗性命名：机制命名`
+Valid status: `completed / partial / missed / unknown / blocked`.
 
-## 4. 三导师镜像
+## 2. Today in Evidence
 
-### 王阳明：知行合一，事上磨练
+| Approximate time | Event or action | Evidence | Energy | Confidence |
+|---|---|---|---|---|
 
-- 今日相合之处：
-- 今日偏离之处：
-- 明日一条修正：
+### Mainline
 
-### 曾国藩：日课反省，向内剖析
+### High-value patches
 
-- 今日之过：
-- 见微知著：
-- 明日一条戒律：
+### Uncertainties
 
-### 马斯克：第一性原理，极限执行
+## 3. Event Heart and Emotional Mechanism
 
-- 事情的第一性原理：
-- 今日复杂化/逃避之处：
-- 明日最小极限动作：
+**Event heart**:
 
-## 5. 评分与距离目标
+**Why this matters beyond a diary entry**:
 
-### 固定维度
+**Observed behavior**:
 
-| 维度 | 分数 | 图 | 依据 |
+**Reflective hypothesis**:
+
+**Recurrence count and structural response**:
+
+## 4. Comparable Growth
+
+| Current situation | Comparison basis | Evidence of change | comparison_delta |
+|---|---|---|---:|
+
+Use `baseline_missing` when no similar prior event exists.
+
+## 5. Adaptive Scores
+
+| Profile-relevant dimension | evidence_score 0–4 | Behavioral evidence | seven_day_trend |
 |---|---:|---|---|
-| 知行合一 | /10 | □□□□□□□□□□ |  |
-| 深度工作 | /10 | □□□□□□□□□□ |  |
-| 核心产出 | /10 | □□□□□□□□□□ |  |
-| 身体管理 | /10 | □□□□□□□□□□ |  |
-| 情绪能量 | /10 | □□□□□□□□□□ |  |
-| 反内耗 | /10 | □□□□□□□□□□ |  |
 
-### 长期目标
+Do not create a universal total across unrelated dimensions.
 
-| 目标 | 分数 | 图 | 今日距离 |
+## 6. Tomorrow Execution Board
+
+**primary_outcome**:
+
+**definition_of_done**:
+
+**estimated_effort**:
+
+**scheduled_block**:
+
+**dependencies**:
+
+| Subtask | Weight | Completion evidence | Partial-credit rule |
 |---|---:|---|---|
-| 身材管理 | /10 | □□□□□□□□□□ |  |
-| 工作管理 | /10 | □□□□□□□□□□ |  |
-| 科研产出 | /10 | □□□□□□□□□□ |  |
 
-评分图示例：`██████░░░░ 6/10`。
+Weights must total 100.
 
-## 6. 明日行动选项
+- **minimum_version**:
+- **first_physical_action**:
+- **if_then_plan**:
+- **support_tasks**: maximum two
+- **progress_percent**: 0
 
-| 选项 | 适用情况 | 明日动作 |
-|---|---|---|
-| 最小行动 | 状态低但不能断线 |  |
-| 正面突破 | 有精力且阻碍清楚 |  |
-| 环境改造 | 问题来自诱惑或混乱 |  |
-| 恢复优先 | 身体/精神明显透支 |  |
+## 7. Delayed Recall Queue
 
-**推荐选择**：
+| recall_id | Learning target | Recall questions | Due dates | Verified status |
+|---|---|---|---|---|
 
-## 7. 周复盘索引字段
+Ask recall before showing the prior answer. Leave this section empty when no learning item deserves later retrieval.
+
+## 8. Weekly Index Fields
 
 ```yaml
 date: YYYY-MM-DD
+profile_version:
+profile_context_used: []
+profile_uncertainties: []
 event_heart:
-emotion_names:
-mentor_deviations:
-fixed_scores:
-  知行合一:
-  深度工作:
-  核心产出:
-  身体管理:
-  情绪能量:
-  反内耗:
-goal_scores:
-  身材管理:
-  工作管理:
-  科研产出:
-tomorrow_action:
-uncertainties:
+commitment_audit:
+  status:
+  evidence: []
+  cause:
+pain_recurrence:
+  pattern:
+  count:
+  structural_response:
+comparison:
+  comparison_basis:
+  comparison_date:
+  comparison_delta:
+  evidence_of_change: []
+scores: []
+primary_outcome:
+definition_of_done:
+subtasks: []
+support_tasks: []
+progress_percent: 0
+recall_queue: []
+captures_used: []
+connector_actions:
+  attempted: []
+  verified: []
+uncertainties: []
 ```
 ````
 
-## Field Rules
+## Field rules
 
-- If times are unknown, use approximate labels such as `上午`, `下午`, `晚上`, or `未知时段`.
-- If the user gives too little information, ask targeted questions first; if still incomplete, produce a draft and mark `uncertainties`.
-- The `事件之心` must be a growth-relevant event or obstacle, not a generic achievement.
-- Scores must be evidence-based and may be low.
-- Keep weekly index fields machine-readable enough for later weekly synthesis.
+- Use approximate periods when exact times are unknown.
+- Evidence and interpretation must remain distinguishable.
+- Scores require cited behavior and may be low.
+- A first-time situation creates a baseline; it does not prove improvement.
+- Tomorrow's subtask weights must total 100 before output.
+- Connector actions remain empty unless a tool call succeeded and was verified.

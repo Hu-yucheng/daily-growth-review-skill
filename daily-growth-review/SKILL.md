@@ -1,87 +1,109 @@
 ---
 name: daily-growth-review
-description: Use when turning daily notes, rough timelines, calendar fragments, todos, training logs, or weekly review inputs into structured Markdown self-reviews, growth reviews, emotion naming, mentor-guided reflection, score tracking, 周复盘, or 年复盘 drafts.
+description: Use when daily or weekly reflection feels generic, repetitive, disconnected from tomorrow, weakly evidenced, difficult to compare over time, or fragmented across notes, tasks, voice logs, links, and learning inputs.
 ---
 
 # Daily Growth Review
 
 ## Overview
 
-Create Markdown-first growth reviews that turn scattered life material into a timeline, an event of the day, emotional naming, mentor mirrors, scores, and next actions. Prioritize growth patterns over diary-style activity logging.
+Turn reflection into adaptive, evidence-checked behavior. A complete review understands the user's current context, audits prior action, compares only comparable situations, builds one auditable next outcome, and preserves important learning for delayed recall.
 
-## Choose the Review Mode
+Public instructions remain background-neutral. Real profile values, journals, connector credentials, and private knowledge belong outside the public Skill repository.
 
-| User asks for | Action |
+## Route the Request
+
+| Request | Load |
 |---|---|
-| 今日复盘, 每日复盘, review my day | Use `references/daily-template.md` and `references/interview-prompts.md`. |
-| 周复盘, this week, 7 days of reviews | Use `references/weekly-template.md`; ask for or read the seven daily reviews. |
-| 年复盘, annual review | Use `references/yearly-template.md` as a skeleton unless the user provides enough yearly material. |
-| 导师视角, 王阳明, 曾国藩, 马斯克, 费曼, 芒格 | Use `references/mentor-frameworks.md`. |
-| Notion or Word export | Generate Markdown first. Only use external integrations if the user explicitly asks and the tools are available. |
+| First use, changed life context, personalization | `references/user-profile.md` and `references/interview-prompts.md` |
+| Daily review | `references/daily-template.md` and `references/reflection-action-loop.md` |
+| Tomorrow plan or todo breakdown | `references/next-action-board.md` |
+| Score, progress, improvement, comparison | `references/scoring-and-growth.md` |
+| Learning, Feynman, reminder, spaced review | `references/learning-recall.md` |
+| Phone fragments, audio, links, short videos, second brain | `references/capture-inbox.md` |
+| Weekly review | `references/weekly-template.md` |
+| Annual or stage review | `references/yearly-template.md` |
+| Reflection lens or user-chosen mentor | `references/mentor-frameworks.md` |
 
-## Daily Review Workflow
+Load only the references required for the request. For a full daily review, load the profile, daily template, action loop, next-action board, scoring, and learning recall references.
 
-1. Gather raw material: timeline notes, calendar fragments, todos, training logs, chat summaries, or rough memory.
-2. If material is thin, ask targeted interview questions. Do not ask more than five questions before producing a useful first pass.
-3. Reconstruct a practical timeline. Mark each block by type: deep work, core output, recovery, consumption, friction, internal conflict, life maintenance, body management, or untracked drift.
-4. Find the `事件之心`: the most meaningful event, obstacle, repeated pattern, or turning point. This is not necessarily the happiest or most successful event.
-5. Explore emotions at the selected intensity: `轻问`, `深挖`, or `严厉拷问`.
-6. Give each core emotion a dual name: `诗性命名：机制命名`.
-7. Apply the default three mentor mirrors: 王阳明, 曾国藩, 马斯克. Add 费曼 or 查理·芒格 only when useful or requested.
-8. Score fixed dimensions and long-term goals from 1 to 10 with compact bars.
-9. Offer 2-4 next-step options and recommend one action for tomorrow.
-10. Always include stable weekly index fields at the end.
+## First-Use Profile
 
-## Default Configuration
+If no private profile exists, build it progressively:
 
-Default mentors:
-- 王阳明: 知行合一，事上磨练
-- 曾国藩: 日课反省，向内剖析
-- 马斯克: 第一性原理，极限执行
+1. Reuse context already supplied.
+2. Ask the single missing question with the highest decision value.
+3. Cover four essentials over time: current roles, one to three current goals, constraints and resources, and feedback preference with analysis boundaries.
+4. Ask age, family, health, finances, institution, culture, or relationships only when the answer can materially change advice; explain why and allow the user to skip.
+5. Produce a useful review even when the profile is incomplete. Mark uncertainty instead of running a long intake.
 
-Long-term goals:
-- 身材管理
-- 工作管理
-- 科研产出
+Never write real profile values into the public Skill folder.
 
-Fixed dimensions:
-- 知行合一
-- 深度工作
-- 核心产出
-- 身体管理
-- 情绪能量
-- 反内耗
+## Daily Workflow
 
-## Safety Boundaries
+1. **Load context.** Read the relevant private profile and recent reviews when available.
+2. **Audit before interpretation.** Validate the previous primary outcome using only `completed / partial / missed / unknown / blocked`; never infer completion without evidence.
+3. **Build the mainline.** Treat the user's direct summary as authoritative. Use transcripts, messages, links, and activity logs as confidence-ranked patches.
+4. **Find the event heart.** Select the event, obstacle, decision, or repeated loop with the greatest growth relevance.
+5. **Name emotion carefully.** Tie emotional and behavioral interpretations to evidence and label them as reflective hypotheses, not diagnoses.
+6. **Apply adaptive lenses.** Use action alignment, system improvement, sustainable energy, and learning transfer. Use a named mentor only when the profile or current request selects one.
+7. **Check recurrence.** First occurrence gets one experiment; second compares the experiment; third requires structural change instead of more explanation.
+8. **Compare fairly.** Use the last similar situation. If none exists, record `baseline_missing` and establish today's first baseline.
+9. **Score evidence.** Activate only four to six profile-relevant dimensions. Use the 0–4 evidence anchors and `-2..+2` comparison delta; use `insufficient_data` when a seven-day trend is not defensible.
+10. **Plan tomorrow.** Create one primary outcome, 3–5 weighted subtasks totaling 100, and at most two support tasks. Progress is verified weight, not effort or confidence.
+11. **Queue learning.** Ask recall before showing the old answer. Generated text is not mastery evidence.
+12. **Emit stable fields.** End with the machine-readable schema from the daily template.
 
-- Treat emotional and behavioral analysis as reflective hypotheses, not diagnosis.
-- Do not present the review as therapy, clinical judgment, or medical advice.
-- `严厉拷问` may be direct and disciplined, but never humiliating, fatalistic, or shame-amplifying.
-- If the user expresses self-harm intent or immediate danger, stop the review and prioritize crisis support according to applicable safety guidance.
+## Action Integrity Rules
 
-## References
+- Do not let a new insight replace an unverified prior commitment.
+- Do not reward busyness, effort, or emotional intensity as completed output.
+- Do not compare unrelated days to manufacture progress.
+- Do not add many goals when the primary outcome is unclear; reduce scope.
+- Do not treat an external dependency as personal failure; use `blocked` with evidence.
+- Do not claim an external write, reminder, message receipt, or link extraction unless the connector ran successfully and the destination or content was verified.
+- Do not infer inaccessible video content from a URL or title.
 
-- `references/daily-template.md`: daily Markdown structure and field rules.
-- `references/weekly-template.md`: weekly synthesis structure.
-- `references/yearly-template.md`: annual review skeleton.
-- `references/mentor-frameworks.md`: mentor lenses and critique rules.
-- `references/interview-prompts.md`: question banks for 轻问, 深挖, and 严厉拷问.
+## Mainline Plus Patch Protocol
+
+Use this when the user supplies both a self-summary and noisy fragments:
+
+1. Extract the mainline: key work, event heart, felt problem, body or energy state, and stated next priority.
+2. Label each patch `high / medium / low / unknown` confidence.
+3. Use patches only for missing evidence, forgotten details, repeated wording, or contradictions.
+4. If a patch conflicts with the direct summary, preserve both and mark uncertainty unless evidence clearly resolves it.
+5. Never turn an all-day transcript into the primary diary by default.
+
+## Connector Boundary
+
+A Skill is a method, not a message server. Personal WeChat monitoring, enterprise messaging, Notion writes, scheduled reminders, email ingestion, and short-video extraction require real connectors, permissions, and successful tool calls. When unavailable, return copyable Markdown or YAML and state that no external action occurred.
+
+## Safety
+
+- Treat emotional analysis as a reflective hypothesis, not therapy, diagnosis, or medical judgment.
+- Direct or strict mode may challenge behavior and cost, never identity or human worth.
+- Ask the minimum sensitive context needed and respect skip/delete requests.
+- If the user expresses self-harm intent or immediate danger, stop ordinary review and prioritize real-world emergency or crisis support.
 
 ## Compact Example
 
-User: `今天很散，上午写了一点论文，下午刷手机，晚上练背但状态一般，帮我复盘。`
+User: `I had classes, missed a planned practice session, helped at home, and want a realistic plan for tomorrow.`
 
 Response pattern:
-1. Ask 2-4 missing-context questions if needed.
-2. Produce the daily template.
-3. Name the likely core state, for example `空转的齿轮：启动阻抗与即时逃避回路`.
-4. Use the three mentor mirrors.
-5. End with one recommended next action for tomorrow.
+
+1. Use supplied role and constraint context; ask at most one high-value missing profile question.
+2. Audit the missed practice without shame.
+3. Separate today's evidence from interpretation.
+4. Compare with a similar prior situation or record `baseline_missing`.
+5. Build one weighted primary outcome and at most two support tasks.
+6. Queue one delayed recall item only if meaningful learning occurred.
 
 ## Common Mistakes
 
-- Do not summarize the day as a plain diary.
-- Do not overfocus on productivity while ignoring energy, emotion, and body state.
-- Do not invent precise times when the user only provides approximate memory.
-- Do not make every score motivationally high; explain the evidence.
-- Do not ask endless questions. Produce a useful draft and mark uncertain parts.
+- Running a population survey before helping with today's review.
+- Reintroducing a profession, life goal, score dimension, or mentor the user never selected.
+- Giving a percentage without weighted acceptance evidence.
+- Calling a first event “improvement” without a comparison basis.
+- Showing the prior explanation before testing recall.
+- Dumping every captured fragment into the daily review.
+- Saying “saved,” “scheduled,” or “sent” when only text was prepared.
