@@ -14,13 +14,28 @@ The remaining three scenarios are release-process or closely covered variants an
 
 ## Official validator
 
-The system `python` alias could not execute. The bundled Codex Python did execute the official validator command, but the validator stopped before reading the Skill because its runtime dependency was unavailable:
+The system `python` alias could not execute, so validation used the bundled Codex Python. PyYAML 6.0.3 was installed only in a temporary directory and Python UTF-8 mode was enabled for the Windows run. The official `skill-creator/scripts/quick_validate.py` then passed both distributions:
 
 ```text
-ModuleNotFoundError: No module named 'yaml'
+Skill is valid!
+Skill is valid!
+OFFICIAL_SKILL_VALIDATION_OK
 ```
 
-This is an environment dependency failure, not a Skill validation result. No successful official validation is claimed. `tests/run-v2-validation.ps1` therefore includes equivalent frontmatter checks for delimiters, allowed fields, name syntax and length, and description length/angle brackets, in addition to the repository-specific behavior, parity, and privacy checks.
+`tests/run-v2-validation.ps1` also retains independent frontmatter, behavior, mirror-parity, privacy, and tracked-private checks.
+
+## Bilingual release assets
+
+The release validator checked ten paired PNG files, PNG decoding, the 1672 x 941 target canvas with a one-pixel generator tolerance, language-correct README references, version-history references, and local Markdown link resolution:
+
+```text
+RELEASE_VALIDATION_OK
+V2_VALIDATION_OK
+SOURCE_HASHES_MATCH
+PUBLIC_ASSET_PRIVACY_SCAN_OK
+```
+
+The five Chinese assets match the user-supplied source files byte-for-byte. The five English assets were inspected after localization; layout, visual hierarchy, numeric weights, decision branches, and privacy/anonymization boundaries were preserved.
 
 ## Manual decisions
 
@@ -53,5 +68,6 @@ The response refused to show the prior explanation first, asked the user to expl
 - Fresh-context scenarios run: 6
 - Behavioral passes: 6
 - Behavioral failures: 0
-- Official validator: blocked by missing `yaml` dependency; not reported as passed
-- Deterministic v2 validator: required to pass at release
+- Official validator: 2 distributions passed
+- Deterministic v2 validator: passed
+- Bilingual release validator: passed
